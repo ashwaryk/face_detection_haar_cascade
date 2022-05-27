@@ -2,8 +2,16 @@ import cv2
 import mediapipe as mp
 import time
 import numpy as np
+import argparse
 
-cap = cv2.VideoCapture(0)
+#####################################################################
+parser = argparse.ArgumentParser()
+parser.add_argument('--src', type=int, default=-1,
+                    help='source of the camera')
+args = parser.parse_args()
+#####################################################################
+
+cap = cv2.VideoCapture(args.src)
 pTime = 0
 
 mpFaceDetection = mp.solutions.face_detection
