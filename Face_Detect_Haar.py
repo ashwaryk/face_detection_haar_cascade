@@ -1,11 +1,19 @@
 import cv2
 import numpy as np
+import argparse
+
+#####################################################################
+parser = argparse.ArgumentParser()
+parser.add_argument('--src', type=int, default=-1,
+                    help='source of the camera')
+args = parser.parse_args()
+#####################################################################
 
 # Load the cascade
 face_cascade = cv2.CascadeClassifier('haarcascade_frontalface_default.xml')
 
 # To capture video from webcam. 
-cap = cv2.VideoCapture(0)
+cap = cv2.VideoCapture(args.src)
 # To use a video file as input 
 # cap = cv2.VideoCapture('filename.mp4')
 
